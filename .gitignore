@@ -26,3 +26,16 @@ bin/
 # IDEA specific
 .idea
 *.iml
+
+# Added for IBM Cloud
+/target
+/.m2
+
+/caches
+/local.properties
+.*.swp
+.DS_Store
+/src/main/liberty/config/server.env
+
+src/main/liberty/config/server.env
+src/main/resources/localdev-config.json
