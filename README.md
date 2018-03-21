@@ -57,6 +57,12 @@ your project needs it, e.g. for Lagom applications that use Cassandra or Kafka.
 
 ##### Build and Deploy Project
 
+Run sbt:
+
+`sbt`
+
+Then at the prompt:
+
 `sbt> deploy minikube`
 
 Once completed, Chirper and its dependencies should be installed in your cluster. Continue with step 3, Verify Deployment.
