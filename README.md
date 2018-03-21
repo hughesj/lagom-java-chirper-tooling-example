@@ -17,6 +17,12 @@ It's a Lagom Java example showcasing a Twitter-like application
 * [Minikube](https://github.com/kubernetes/minikube)
 * [SBT](http://www.scala-sbt.org/)
 
+### Clone the Chirper sample repo
+
+This GitHub repository is enabled with Lightbend Orchestration for Kubernetes:
+
+`git clone https://github.com/longshorej/lagom-java-chirper-tooling-example.git`
+
 ### Build & Deploy
 
 #### 1. Environment Preparation
