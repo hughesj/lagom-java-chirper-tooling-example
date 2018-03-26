@@ -17,6 +17,26 @@ It's a Lagom Java example showcasing a Twitter-like application
 * [Helm](https://github.com/kubernetes/helm)
 * [Minikube](https://github.com/kubernetes/minikube)
 * [SBT](http://www.scala-sbt.org/)
+* [reactive-cli](https://github.com/lightbend/reactive-cli)
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+
+If you're using macOS and [Homebrew](https://brew.sh/) you can execute the following:
+```
+# Install Java 8
+brew cask install caskroom/versions/java8
+
+# Install Docker, Virtualbox, Minikube
+brew cask install docker virtualbox minikube
+
+# Install SBT
+brew install sbt
+
+# Install Helm
+brew install kubernetes-helm
+
+# Install reactive-cli
+brew tap lightbend/tools && brew install lightbend/tools/reactive-cli
+```
 
 ### Clone the Chirper sample repo
 
@@ -63,6 +83,8 @@ your running Minikube. It also installs the [Reactive Sandbox](https://github.co
 your project needs it, e.g. for Lagom applications that use Cassandra or Kafka.
 
 ##### Build and Deploy Project
+
+`cd lagom-java-sbt-chirper-example`
 
 Run sbt:
 
