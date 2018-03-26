@@ -94,7 +94,11 @@ Then at the prompt:
 
 `> deploy minikube`
 
-Once completed, Chirper and its dependencies should be installed in your cluster. Continue with step 3, Verify Deployment.
+Once completed, Chirper and its dependencies should be installed in your cluster. Exit `sbt`:
+
+`> exit`
+
+Continue with step 3, Verify Deployment.
 
 #### 2b. Operations Workflow
 
@@ -277,4 +281,27 @@ svc/reactive-sandbox-zookeeper       ClusterIP   None             <none>        
 
 ```bash
 echo "http://$(minikube ip)"
+```
+
+#### How to remove the prerequisites
+
+If you need to revert your environment to its original state, you can run some or all of the following as appropriate:
+
+```
+# Install Java 8
+brew cask uninstall caskroom/versions/java8
+
+# Install Docker, Virtualbox, Minikube
+brew cask uninstall docker
+brew cask uninstall virtualbox
+brew cask uninstall minikube
+
+# Install SBT
+brew uninstall sbt
+
+# Install Helm
+brew uninstall kubernetes-helm
+
+# Install reactive-cli
+brew uninstall lightbend/tools/reactive-cli
 ```
