@@ -1,6 +1,6 @@
 # lagom-java-chirper-example
 
-This project is an example for [Lightbend Reactive Platform Tooling](https://developer.lightbend.com/docs/reactive-platform-tooling/latest/).
+This project is an example for [Lightbend Orchestration for Kubernetes](https://developer.lightbend.com/docs/lightbend-orchestration-kubernetes/latest/).
 
 It's a Lagom Java example showcasing a Twitter-like application
 
@@ -12,6 +12,7 @@ It's a Lagom Java example showcasing a Twitter-like application
 
 #### Prerequisites
 
+* Java 8
 * [Docker](https://www.docker.com/)
 * [Helm](https://github.com/kubernetes/helm)
 * [Minikube](https://github.com/kubernetes/minikube)
@@ -21,7 +22,7 @@ It's a Lagom Java example showcasing a Twitter-like application
 
 This GitHub repository is enabled with Lightbend Orchestration for Kubernetes:
 
-`git clone https://github.com/longshorej/lagom-java-chirper-tooling-example.git`
+`git clone https://github.com/lagom/lagom-java-sbt-chirper-example.git`
 
 ### Build & Deploy
 
@@ -29,7 +30,7 @@ This GitHub repository is enabled with Lightbend Orchestration for Kubernetes:
 
 ##### Install reactive-cli
 
-See [Reactive Platform Tooling Documentation](https://developer.lightbend.com/docs/reactive-platform-tooling/latest/#install-the-cli)
+See [Lightbend Orchestration for Kubernetes](https://developer.lightbend.com/docs/lightbend-orchestration-kubernetes/latest#install-the-cli)
 
 Ensure you're using `reactive-cli` 0.9.0 or newer. You can check the version with `rp version`.
 
@@ -195,63 +196,59 @@ inspect the resources, and your favorite web browser to use the application.
 
 > See the resources created for you
 
-```bash
-kubectl get all
-```
-
 ```
 $ kubectl get all
 NAME                                     DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-deploy/activityservice-v1-0-0-snapshot   1         1         1            1           29m
-deploy/chirpservice-v1-0-0-snapshot      1         1         1            1           29m
-deploy/friendservice-v1-0-0-snapshot     1         1         1            1           29m
-deploy/front-end-v1-0-0-snapshot         1         1         1            1           29m
-deploy/loadtestservice-v1-0-0-snapshot   1         1         1            0           29m
-deploy/reactive-sandbox                  1         1         1            1           31m
+deploy/activityservice-v1-0-0-snapshot   1         1         1            1           1m
+deploy/chirpservice-v1-0-0-snapshot      1         1         1            1           1m
+deploy/friendservice-v1-0-0-snapshot     1         1         1            1           1m
+deploy/front-end-v1-0-0-snapshot         1         1         1            1           1m
+deploy/loadtestservice-v1-0-0-snapshot   1         1         1            1           1m
+deploy/reactive-sandbox                  1         1         1            1           4m
 
 NAME                                            DESIRED   CURRENT   READY     AGE
-rs/activityservice-v1-0-0-snapshot-8b6d9b59c    1         1         1         29m
-rs/chirpservice-v1-0-0-snapshot-7ddb9c86b5      1         1         1         29m
-rs/friendservice-v1-0-0-snapshot-5bc56f9cc9     1         1         1         29m
-rs/front-end-v1-0-0-snapshot-5979dfd7f          1         1         1         29m
-rs/loadtestservice-v1-0-0-snapshot-5f598666c5   1         1         0         29m
-rs/reactive-sandbox-75fc9fbfd4                  1         1         1         31m
+rs/activityservice-v1-0-0-snapshot-8b6d9b59c    1         1         1         1m
+rs/chirpservice-v1-0-0-snapshot-7ddb9c86b5      1         1         1         1m
+rs/friendservice-v1-0-0-snapshot-5bc56f9cc9     1         1         1         1m
+rs/front-end-v1-0-0-snapshot-5979dfd7f          1         1         1         1m
+rs/loadtestservice-v1-0-0-snapshot-5f598666c5   1         1         1         1m
+rs/reactive-sandbox-75fc9fbfd4                  1         1         1         4m
 
 NAME                                     DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-deploy/activityservice-v1-0-0-snapshot   1         1         1            1           29m
-deploy/chirpservice-v1-0-0-snapshot      1         1         1            1           29m
-deploy/friendservice-v1-0-0-snapshot     1         1         1            1           29m
-deploy/front-end-v1-0-0-snapshot         1         1         1            1           29m
-deploy/loadtestservice-v1-0-0-snapshot   1         1         1            0           29m
-deploy/reactive-sandbox                  1         1         1            1           31m
+deploy/activityservice-v1-0-0-snapshot   1         1         1            1           1m
+deploy/chirpservice-v1-0-0-snapshot      1         1         1            1           1m
+deploy/friendservice-v1-0-0-snapshot     1         1         1            1           1m
+deploy/front-end-v1-0-0-snapshot         1         1         1            1           1m
+deploy/loadtestservice-v1-0-0-snapshot   1         1         1            1           1m
+deploy/reactive-sandbox                  1         1         1            1           4m
 
 NAME                                            DESIRED   CURRENT   READY     AGE
-rs/activityservice-v1-0-0-snapshot-8b6d9b59c    1         1         1         29m
-rs/chirpservice-v1-0-0-snapshot-7ddb9c86b5      1         1         1         29m
-rs/friendservice-v1-0-0-snapshot-5bc56f9cc9     1         1         1         29m
-rs/front-end-v1-0-0-snapshot-5979dfd7f          1         1         1         29m
-rs/loadtestservice-v1-0-0-snapshot-5f598666c5   1         1         0         29m
-rs/reactive-sandbox-75fc9fbfd4                  1         1         1         31m
+rs/activityservice-v1-0-0-snapshot-8b6d9b59c    1         1         1         1m
+rs/chirpservice-v1-0-0-snapshot-7ddb9c86b5      1         1         1         1m
+rs/friendservice-v1-0-0-snapshot-5bc56f9cc9     1         1         1         1m
+rs/front-end-v1-0-0-snapshot-5979dfd7f          1         1         1         1m
+rs/loadtestservice-v1-0-0-snapshot-5f598666c5   1         1         1         1m
+rs/reactive-sandbox-75fc9fbfd4                  1         1         1         4m
 
-NAME                                                  READY     STATUS             RESTARTS   AGE
-po/activityservice-v1-0-0-snapshot-8b6d9b59c-9gb69    1/1       Running            0          29m
-po/chirpservice-v1-0-0-snapshot-7ddb9c86b5-f79sf      1/1       Running            0          29m
-po/friendservice-v1-0-0-snapshot-5bc56f9cc9-2plgk     1/1       Running            0          29m
-po/front-end-v1-0-0-snapshot-5979dfd7f-hbxd6          1/1       Running            0          29m
-po/loadtestservice-v1-0-0-snapshot-5f598666c5-skqw2   0/1       CrashLoopBackOff   10         29m
-po/reactive-sandbox-75fc9fbfd4-zhbn9                  1/1       Running            0          31m
+NAME                                                  READY     STATUS    RESTARTS   AGE
+po/activityservice-v1-0-0-snapshot-8b6d9b59c-qjvvr    1/1       Running   0          1m
+po/chirpservice-v1-0-0-snapshot-7ddb9c86b5-ld5zf      1/1       Running   0          1m
+po/friendservice-v1-0-0-snapshot-5bc56f9cc9-x76wk     1/1       Running   0          1m
+po/front-end-v1-0-0-snapshot-5979dfd7f-hp82b          1/1       Running   0          1m
+po/loadtestservice-v1-0-0-snapshot-5f598666c5-4p88w   1/1       Running   0          1m
+po/reactive-sandbox-75fc9fbfd4-rzqqn                  1/1       Running   0          4m
 
-NAME                                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                         AGE
-svc/activityservice                  ClusterIP   10.110.68.12    <none>        10000/TCP                       29m
-svc/chirpservice                     ClusterIP   10.99.213.170   <none>        10000/TCP,10001/TCP,10002/TCP   29m
-svc/friendservice                    ClusterIP   10.105.26.63    <none>        10000/TCP,10001/TCP,10002/TCP   29m
-svc/front-end                        ClusterIP   10.99.30.84     <none>        10000/TCP                       29m
-svc/kubernetes                       ClusterIP   10.96.0.1       <none>        443/TCP                         43m
-svc/loadtestservice                  ClusterIP   10.98.71.47     <none>        10000/TCP                       29m
-svc/reactive-sandbox-cassandra       ClusterIP   None            <none>        9042/TCP                        31m
-svc/reactive-sandbox-elasticsearch   ClusterIP   None            <none>        9200/TCP                        31m
-svc/reactive-sandbox-kafka           ClusterIP   None            <none>        9092/TCP                        31m
-svc/reactive-sandbox-zookeeper       ClusterIP   None            <none>        2181/TCP                        31m
+NAME                                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                         AGE
+svc/activityservice                  ClusterIP   10.101.101.141   <none>        10000/TCP                       1m
+svc/chirpservice                     ClusterIP   10.110.36.66     <none>        10000/TCP,10001/TCP,10002/TCP   1m
+svc/friendservice                    ClusterIP   10.102.210.186   <none>        10000/TCP,10001/TCP,10002/TCP   1m
+svc/front-end                        ClusterIP   10.106.149.133   <none>        10000/TCP                       1m
+svc/kubernetes                       ClusterIP   10.96.0.1        <none>        443/TCP                         21m
+svc/loadtestservice                  ClusterIP   10.104.209.22    <none>        10000/TCP                       1m
+svc/reactive-sandbox-cassandra       ClusterIP   None             <none>        9042/TCP                        4m
+svc/reactive-sandbox-elasticsearch   ClusterIP   None             <none>        9200/TCP                        4m
+svc/reactive-sandbox-kafka           ClusterIP   None             <none>        9092/TCP                        4m
+svc/reactive-sandbox-zookeeper       ClusterIP   None             <none>        2181/TCP                        4m
 ```
 
 > Open the URL this command prints in the browser
